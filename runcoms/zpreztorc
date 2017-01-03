@@ -23,17 +23,25 @@ zstyle ':prezto:*:*' color 'yes'
 
 # Set the Prezto modules to load (browse modules).
 # The order matters.
-zstyle ':prezto:load' pmodule \
-  'environment' \
-  'terminal' \
-  'editor' \
-  'history' \
-  'directory' \
-  'spectrum' \
-  'utility' \
-  'completion' \
-  'prompt'
-
+zstyle ':prezto:load' pmodule                   \
+       'environment'                            \
+       'terminal'                               \
+       'editor'                                 \
+       'history'                                \
+       'directory'                              \
+       'spectrum'                               \
+       'gnu-utility'                            \
+       'utility'                                \
+       'completion'                             \
+       'git'                                    \
+       'python'                                 \
+       'ssh'                                    \
+       'rsync'                                  \
+       'syntax-highlighting'                    \
+       'history-substring-search'               \
+       'command-not-found'                      \
+       'autosuggestions'                        \
+       'prompt'
 #
 # Deer
 #
@@ -46,7 +54,14 @@ zstyle ':prezto:load' pmodule \
 #
 
 # Set the query found color.
+zstyle ':prezto:module:autosuggestions' color 'yes'
 # zstyle ':prezto:module:autosuggestions:color' found ''
+
+#
+# Utility
+#
+zstyle ':prezto:module:utility:ls' color 'yes'
+zstyle ':prezto:module:utility:grep' color 'yes'
 
 #
 # Editor
@@ -56,14 +71,14 @@ zstyle ':prezto:load' pmodule \
 zstyle ':prezto:module:editor' key-bindings 'emacs'
 
 # Auto convert .... to ../..
-# zstyle ':prezto:module:editor' dot-expansion 'yes'
+zstyle ':prezto:module:editor' dot-expansion 'yes'
 
 #
 # Git
 #
 
 # Ignore submodules when they are 'dirty', 'untracked', 'all', or 'none'.
-# zstyle ':prezto:module:git:status:ignore' submodules 'all'
+zstyle ':prezto:module:git:status:ignore' submodules 'untracked'
 
 #
 # GNU Utility
@@ -75,12 +90,13 @@ zstyle ':prezto:module:editor' key-bindings 'emacs'
 #
 # History Substring Search
 #
+zstyle ':prezto:module:history-substring-search' color 'yes'
 
 # Set the query found color.
-# zstyle ':prezto:module:history-substring-search:color' found ''
+zstyle ':prezto:module:history-substring-search:color' found 'bg=234,fg=10'
 
 # Set the query not found color.
-# zstyle ':prezto:module:history-substring-search:color' not-found ''
+zstyle ':prezto:module:history-substring-search:color' not-found 'bg=234,fg=9'
 
 # Set the search globbing flags.
 # zstyle ':prezto:module:history-substring-search' globbing-flags ''
@@ -106,7 +122,7 @@ zstyle ':prezto:module:prompt' theme 'sorin'
 #
 
 # Auto switch the Ruby version on directory change.
-# zstyle ':prezto:module:ruby:chruby' auto-switch 'yes'
+zstyle ':prezto:module:ruby:chruby' auto-switch 'yes'
 
 #
 # Screen
@@ -123,7 +139,7 @@ zstyle ':prezto:module:prompt' theme 'sorin'
 #
 
 # Set the SSH identities to load into the agent.
-# zstyle ':prezto:module:ssh:load' identities 'id_rsa' 'id_rsa2' 'id_github'
+zstyle ':prezto:module:ssh:load' identities 'id_rsa' 'id_rsa2' 'id_github'
 
 #
 # Syntax Highlighting
@@ -131,23 +147,43 @@ zstyle ':prezto:module:prompt' theme 'sorin'
 
 # Set syntax highlighters.
 # By default, only the main highlighter is enabled.
-# zstyle ':prezto:module:syntax-highlighting' highlighters \
-#   'main' \
-#   'brackets' \
-#   'pattern' \
-#   'line' \
-#   'cursor' \
-#   'root'
+zstyle ':prezto:module:syntax-highlighting' highlighters  \
+  'main'                                                  \
+  'brackets'                                              \
+  'pattern'                                               \
+  'line'                                                  \
+  'root'
+# 'cursor'
+
 #
 # Set syntax highlighting styles.
-# zstyle ':prezto:module:syntax-highlighting' styles \
-#   'builtin' 'bg=blue' \
-#   'command' 'bg=blue' \
-#   'function' 'bg=blue'
-#
-# Set syntax pattern styles.
-# zstyle ':prezto:module:syntax-highlighting' pattern \
-#   'rm*-rf*' 'fg=white,bold,bg=red'
+zstyle ':prezto:module:syntax-highlighting' styles      \
+       'default'                     'fg=246'           \
+       'unknown-token'               'fg=9'             \
+       'reserved-word'               'fg=11'            \
+       'builtin'                     'fg=13'            \
+       'command'                     'fg=27'            \
+       'arg0'                        'fg=27'            \
+       'alias'                       'fg=27'            \
+       'function'                    'fg=6'             \
+       'history-expansion'           'fg=174,underline' \
+       'globbing'                    'fg=178'           \
+       'path'                        'fg=150'           \
+       'path_pathseparator'          'fg=33,bold'       \
+       'path_prefix'                 'fg=101,underline' \
+       'path_prefix_pathseparator'   'fg=160,bold'      \
+       'single-hyphen-option'        'fg=197,italic'    \
+       'double-hyphen-option'        'fg=10,italic'     \
+       'commandseparator'            'fg=202,bold'      \
+       'single-quoted-argument'      'fg=101'           \
+       'double-quoted-argument'      'fg=101'           \
+       'back-double-quoted-argument' 'fg=101'           \
+       'precommand'                  'fg=5'             \
+       'root'                        'standout'         \
+       'comment'                     'fg=8,italic'      \
+       'redirection'                 'fg=5'             \
+       'suffix-alias'                'fg=65'
+
 
 #
 # Terminal

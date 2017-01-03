@@ -17,9 +17,11 @@ fi
 # Editors
 #
 
-export EDITOR='nano'
+export GIT_EDITOR='emacsclient -t'
+export EDITOR='emacsclient -t'
 export VISUAL='nano'
 export PAGER='less'
+export ALTERNATE_EDITOR=""
 
 #
 # Language
@@ -43,8 +45,17 @@ typeset -gU cdpath fpath mailpath path
 
 # Set the list of directories that Zsh searches for programs.
 path=(
-  /usr/local/{bin,sbin}
-  $path
+    #/usr/local/share/perl/5.18.2/auto/share/dist/Cope # ubuntu systems
+    # /usr/local/share/perl/5.22.1/auto/share/dist/Cope
+    $HOME/bin
+    $HOME/.local/bin
+    $HOME/.autojump/bin
+    /usr/local/{bin,sbin}
+  	/{bin,sbin}
+  	/usr/{bin,sbin}
+  	/usr/local/{bin,sbin}
+  	/usr/{bin,sbin}
+  	$path
 )
 
 #
